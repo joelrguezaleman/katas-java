@@ -1,7 +1,7 @@
 package com.joelrguezaleman.katas;
 
 import java.util.stream.Stream;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,11 +30,23 @@ public class WordWrapKataTest
         );
     }
 
-    @Test
-    public void itReturnsAnEmptyStringWhenGivenAnEmptyString() throws Exception
-    {
-        String wrappedText = WordWrapKata.wrap("", 1);
+    @ParameterizedTest
+    @MethodSource("textsProvider")
+    public void itReturnsATextCorrectlyWrapped(
+        String text,
+        int columnNumber,
+        String expectedResult
+    ) throws Exception {
+        String result = WordWrapKata.wrap(text, columnNumber);
 
-        assertSame("", wrappedText);
+        assertEquals(expectedResult, result);
+    }
+
+    private static Stream<Arguments> textsProvider()
+    {
+        return Stream.of(
+            Arguments.of("", 1, ""),
+            Arguments.of("text", 2, "te\nxt")
+        );
     }
 }

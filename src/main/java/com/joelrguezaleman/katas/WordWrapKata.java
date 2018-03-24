@@ -8,6 +8,21 @@ public class WordWrapKata
             throw new Exception();
         }
 
-        return text;
+        return addNewlineCharactersToText(text, columnNumber);
+    }
+
+    private static String addNewlineCharactersToText(String text, int columnNumber)
+    {
+        String wrappedText = "";
+
+        int textLength = text.length();
+        for (int i=0; i<textLength; i++) {
+            if (i == columnNumber) {
+                wrappedText += '\n';
+            }
+            wrappedText += text.charAt(i);
+        }
+
+        return wrappedText;
     }
 }
