@@ -47,7 +47,8 @@ public class WordWrapKataTest
         return Stream.of(
             Arguments.of("", 1, ""),
             Arguments.of("text", 2, "te\nxt"),
-            Arguments.of("text", 5, "text")
+            Arguments.of("text", 5, "text"),
+            Arguments.of("this text", 6, "this\ntext")
         );
     }
 }
