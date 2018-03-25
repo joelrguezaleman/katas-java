@@ -16,23 +16,16 @@ public class WordWrapKata
         String wrappedText = "";
 
         int textLength = text.length();
-        boolean spaceWasFound = false;
-
         for (int i=0; i<textLength; i++) {
-            if (i == columnNumber) {
-                wrappedText = addNewlineCharacter(wrappedText, spaceWasFound);
-            }
             if (text.charAt(i) == ' ') {
-                spaceWasFound = true;
+                return text.replace(' ', '\n');
+            }
+            if (i == columnNumber) {
+                wrappedText += '\n';
             }
             wrappedText += text.charAt(i);
         }
 
         return wrappedText;
-    }
-
-    private static String addNewlineCharacter(String wrappedText, boolean spaceWasFound)
-    {
-        return spaceWasFound ? wrappedText.replace(' ', '\n') : wrappedText + '\n';
     }
 }
