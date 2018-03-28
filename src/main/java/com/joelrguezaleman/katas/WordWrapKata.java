@@ -15,17 +15,47 @@ public class WordWrapKata
     {
         String wrappedText = "";
 
-        int textLength = text.length();
-        for (int i=0; i<textLength; i++) {
-            if (text.charAt(i) == ' ') {
-                return text.replace(' ', '\n');
-            }
-            if (i == columnNumber) {
-                wrappedText += '\n';
-            }
-            wrappedText += text.charAt(i);
+        int usedCharacters = 0;
+        String[] words = text.split(" ");
+        for (String word : words) {
+            word = wrapWord(word, columnNumber);
+            String wordSeparator = getWordSeparator(word, usedCharacters, columnNumber);
+            word = usedCharacters == 0 ? word : wordSeparator + word;
+            wrappedText += word;
+            usedCharacters = calculateUsedCharacters(wrappedText);
         }
 
         return wrappedText;
+    }
+
+    private static String wrapWord(String word, int columnNumber)
+    {
+        if (word.length() <= columnNumber) {
+            return word;
+        }
+
+        String wrappedWord = "";
+
+        int wordLength = word.length();
+        for (int i = 0; i < wordLength; i++) {
+            if (i > 0 && i % columnNumber == 0) {
+                wrappedWord += '\n';
+            }
+            wrappedWord += word.charAt(i);
+        }
+
+        return wrappedWord;
+    }
+
+    private static String getWordSeparator(String word, int usedCharacters, int columnNumber)
+    {
+        return usedCharacters + word.length() <= columnNumber ? " " : "\n";
+    }
+
+    private static int calculateUsedCharacters(String wrappedText)
+    {
+        return wrappedText.lastIndexOf('\n') == -1
+            ? wrappedText.length()
+            : wrappedText.substring(wrappedText.lastIndexOf('\n')).length();
     }
 }

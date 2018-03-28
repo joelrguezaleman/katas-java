@@ -49,7 +49,8 @@ public class WordWrapKataTest
             Arguments.of("text", 2, "te\nxt"),
             Arguments.of("text", 5, "text"),
             Arguments.of("this text", 6, "this\ntext"),
-            Arguments.of("this text", 4, "this\ntext")
+            Arguments.of("this text", 4, "this\ntext"),
+            Arguments.of("this example", 4, "this\nexam\nple")
         );
     }
 }
