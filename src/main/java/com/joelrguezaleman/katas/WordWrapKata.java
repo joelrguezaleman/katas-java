@@ -49,7 +49,7 @@ public class WordWrapKata
 
     private static String getWordSeparator(String word, int usedCharacters, int columnNumber)
     {
-        return usedCharacters + word.length() <= columnNumber ? " " : "\n";
+        return usedCharacters + word.length() + 1 <= columnNumber ? " " : "\n";
     }
 
     private static int calculateUsedCharacters(String wrappedText)
