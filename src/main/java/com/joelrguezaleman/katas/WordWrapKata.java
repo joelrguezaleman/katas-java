@@ -8,10 +8,10 @@ public class WordWrapKata
             throw new Exception();
         }
 
-        return addNewlineCharactersToText(text, columnNumber);
+        return wrapText(text, columnNumber);
     }
 
-    private static String addNewlineCharactersToText(String text, int columnNumber)
+    private static String wrapText(String text, int columnNumber)
     {
         String wrappedText = "";
 
