@@ -51,7 +51,12 @@ public class WordWrapKataTest
             Arguments.of("this text", 6, "this\ntext"),
             Arguments.of("this text", 4, "this\ntext"),
             Arguments.of("this example", 4, "this\nexam\nple"),
-            Arguments.of("this longer text", 10, "this\nlonger\ntext")
+            Arguments.of("this longer text", 10, "this\nlonger\ntext"),
+            Arguments.of(
+                "a long time ago in a galaxy far far away",
+                10,
+                "a long\ntime ago\nin a\ngalaxy far\nfar away"
+            )
         );
     }
 }
