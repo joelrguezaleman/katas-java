@@ -27,11 +27,12 @@ public class WordWrapKata
             if (usedCharacters != columnNumber) {
                 usedCharacters++;
             } else {
-                usedCharacters = i - lastSpaceIndex;
                 if (lastSpaceIndex == -1) {
                     wrappableText.insert(i, '\n');
+                    usedCharacters = 0;
                 } else {
                     wrappableText.setCharAt(lastSpaceIndex, '\n');
+                    usedCharacters = i - lastSpaceIndex;
                     lastSpaceIndex = -1;
                 }
             }

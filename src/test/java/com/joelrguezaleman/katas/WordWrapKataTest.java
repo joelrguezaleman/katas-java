@@ -56,6 +56,11 @@ public class WordWrapKataTest
                 "a long time ago in a galaxy far far away",
                 10,
                 "a long\ntime ago\nin a\ngalaxy far\nfar away"
+            ),
+            Arguments.of(
+                "thissuperlongwordshouldhavealotofnewlinecharacters",
+                10,
+                "thissuperl\nongwordsho\nuldhavealo\ntofnewline\ncharacters"
             )
         );
     }
