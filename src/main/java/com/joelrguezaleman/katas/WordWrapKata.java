@@ -21,7 +21,7 @@ public class WordWrapKata
         int textLength = text.length();
         int usedCharacters = 0;
         for (int i=0; i<textLength; i++) {
-            if (text.charAt(i) == ' ') {
+            if (wrappableText.charAt(i) == ' ') {
                 lastSpaceIndex = i;
             }
             if (usedCharacters != columnNumber) {

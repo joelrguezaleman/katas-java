@@ -58,6 +58,11 @@ public class WordWrapKataTest
                 "a long\ntime ago\nin a\ngalaxy far\nfar away"
             ),
             Arguments.of(
+                "superlongword but then shorter ones",
+                10,
+                "superlongw\nord but\nthen\nshorter\nones"
+            ),
+            Arguments.of(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae lacinia leo. Praesent sit amet nisi a libero posuere volutpat elementum quis enim. Integer efficitur, purus sed ultricies varius, orci massa malesuada mi, quis ultricies urna dolor sed lorem. Pellentesque ut turpis eleifend, consequat ex nec, egestas felis.",
                 30,
                 "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.\nMaecenas vitae lacinia leo.\nPraesent sit amet nisi a\nlibero posuere volutpat\nelementum quis enim. Integer\nefficitur, purus sed ultricies\nvarius, orci massa malesuada\nmi, quis ultricies urna dolor\nsed lorem. Pellentesque ut\nturpis eleifend, consequat ex\nnec, egestas felis."
