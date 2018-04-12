@@ -18,9 +18,9 @@ public class WordWrapKata
         StringBuilder wrappableText = new StringBuilder(text);
 
         int lastSpaceIndex = -1;
-        int textLength = text.length();
         int usedCharacters = 0;
-        for (int i=0; i<textLength; i++) {
+
+        for (int i=0; i<wrappableText.length(); i++) {
             if (wrappableText.charAt(i) == ' ') {
                 lastSpaceIndex = i;
             }
