@@ -2,7 +2,7 @@ package com.joelrguezaleman.katas;
 
 import java.lang.StringBuilder;
 
-public class WordWrapKata
+public class WordWrap
 {
     public static String wrap(String text, int columnNumber) throws Exception
     {
