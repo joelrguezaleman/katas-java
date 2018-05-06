@@ -9,4 +9,5 @@ A collection of katas that I've implemented.
 
 ## List
 
+- [Mars Rover](https://github.com/vfarcic/mars-rover-kata-java)
 - [Word Wrap](http://codingdojo.org/kata/WordWrap/)
