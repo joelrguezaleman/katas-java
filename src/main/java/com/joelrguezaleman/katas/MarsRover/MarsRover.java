@@ -4,8 +4,12 @@ public class MarsRover
 {
     private Coordinates coordinates;
 
-    public MarsRover(Coordinates coordinates, char direction)
+    public MarsRover(Coordinates coordinates, char direction) throws InvalidCoordinatesException
     {
+        if (coordinates.x < 0) {
+            throw new InvalidCoordinatesException();
+        }
+
         this.coordinates = coordinates;
     }
 
