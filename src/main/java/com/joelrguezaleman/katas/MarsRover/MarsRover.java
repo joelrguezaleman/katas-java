@@ -6,7 +6,7 @@ public class MarsRover
 
     public MarsRover(Coordinates coordinates, char direction) throws InvalidCoordinatesException
     {
-        if (coordinates.x < 0) {
+        if (coordinates.x < 0 || coordinates.y < 0) {
             throw new InvalidCoordinatesException();
         }
 

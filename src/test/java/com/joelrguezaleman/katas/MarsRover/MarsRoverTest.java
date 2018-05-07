@@ -1,8 +1,12 @@
 package com.joelrguezaleman.katas;
 
+import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class MarsRoverTest
 {
@@ -22,16 +26,23 @@ public class MarsRoverTest
         assertEquals(0, roverCoordinates.y);
     }
 
-    @Test
-    public void itThrowsAnExceptionIfTheCoordinatesOrTheDirectionAreInvalid()
+    @ParameterizedTest
+    @MethodSource("coordinatesProvider")
+    public void itThrowsAnExceptionIfTheCoordinatesOrTheDirectionAreInvalid(Coordinates coordinates)
     {
-        Coordinates coordinates = new Coordinates(-1, 0);
-
         assertThrows(
             InvalidCoordinatesException.class,
             () -> {
                 new MarsRover(coordinates, this.DIRECTION);
             }
+        );
+    }
+
+    private static Stream<Arguments> coordinatesProvider()
+    {
+        return Stream.of(
+            Arguments.of(new Coordinates(-1, 0)),
+            Arguments.of(new Coordinates(0, -1))
         );
     }
 }
