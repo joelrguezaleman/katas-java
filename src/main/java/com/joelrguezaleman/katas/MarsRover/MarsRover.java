@@ -15,6 +15,9 @@ public class MarsRover
 
     public void move(char[] commands)
     {
+        for (char command : commands) {
+            this.coordinates.x++;
+        }
     }
 
     public Coordinates coordinates()
