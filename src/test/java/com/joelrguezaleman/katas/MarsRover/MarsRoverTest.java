@@ -65,8 +65,16 @@ public class MarsRoverTest
             // Move the MarsRover forward
             Arguments.of(
                 new Coordinates(0, 0),
-                new char[]{'f'},
+                new char[]{MarsRoverCommands.FORWARD},
                 1,
+                0
+            ),
+
+            // Move the MarsRover backward
+            Arguments.of(
+                new Coordinates(1, 0),
+                new char[]{MarsRoverCommands.BACKWARD},
+                0,
                 0
             )
         );
