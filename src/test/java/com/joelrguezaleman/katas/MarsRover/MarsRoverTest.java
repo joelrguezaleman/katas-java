@@ -12,51 +12,49 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class MarsRoverTest
 {
     @ParameterizedTest
-    @MethodSource("coordinatesProvider")
-    public void itThrowsAnExceptionIfTheCoordinatesOrTheDirectionAreInvalid(
-        Coordinates coordinates
+    @MethodSource("positionProvider")
+    public void itThrowsAnExceptionIfThePositionIsInvalid(
+        Position position
     ) {
         assertThrows(
-            InvalidCoordinatesException.class,
+            InvalidPositionException.class,
             () -> {
-                new MarsRover(coordinates, Directions.EAST);
+                new MarsRover(position);
             }
         );
     }
 
-    private static Stream<Arguments> coordinatesProvider()
+    private static Stream<Arguments> positionProvider()
     {
         return Stream.of(
-            Arguments.of(new Coordinates(-1, 0)),
-            Arguments.of(new Coordinates(0, -1))
+            Arguments.of(new Position(-1, 0, Directions.EAST)),
+            Arguments.of(new Position(0, -1, Directions.EAST))
         );
     }
 
     @ParameterizedTest
-    @MethodSource("coordinatesAndCommandsProvider")
+    @MethodSource("positionAndCommandsProvider")
     public void itCorrectlyUpdatesThePositionOfTheMarsRover(
-        Coordinates coordinates,
-        char direction,
+        Position position,
         char[] commands,
         int expectedXCoordinate,
         int expectedYCoordinate
-    ) throws InvalidCoordinatesException {
-        MarsRover marsRover = new MarsRover(coordinates, direction);
+    ) throws InvalidPositionException {
+        MarsRover marsRover = new MarsRover(position);
 
         marsRover.move(commands);
 
-        Coordinates roverCoordinates = marsRover.coordinates();
-        assertEquals(expectedXCoordinate, roverCoordinates.x);
-        assertEquals(expectedYCoordinate, roverCoordinates.y);
+        Position roverPosition = marsRover.position();
+        assertEquals(expectedXCoordinate, roverPosition.x());
+        assertEquals(expectedYCoordinate, roverPosition.y());
     }
 
-    private static Stream<Arguments> coordinatesAndCommandsProvider()
+    private static Stream<Arguments> positionAndCommandsProvider()
     {
         return Stream.of(
             // Send an empty array of commands, the MarsRover should not move
             Arguments.of(
-                new Coordinates(0, 0),
-                Directions.EAST,
+                new Position(0, 0, Directions.EAST),
                 new char[0],
                 0,
                 0
@@ -64,8 +62,7 @@ public class MarsRoverTest
 
             // Move the MarsRover forward
             Arguments.of(
-                new Coordinates(0, 0),
-                Directions.EAST,
+                new Position(0, 0, Directions.EAST),
                 new char[]{MarsRoverCommands.FORWARD},
                 1,
                 0
@@ -73,8 +70,7 @@ public class MarsRoverTest
 
             // Move the MarsRover backward
             Arguments.of(
-                new Coordinates(1, 0),
-                Directions.EAST,
+                new Position(1, 0, Directions.EAST),
                 new char[]{MarsRoverCommands.BACKWARD},
                 0,
                 0

@@ -2,32 +2,30 @@ package com.joelrguezaleman.katas;
 
 public class MarsRover
 {
-    private Coordinates coordinates;
+    private Position position;
 
-    public MarsRover(
-        Coordinates coordinates,
-        char direction
-    ) throws InvalidCoordinatesException {
-        if (coordinates.x < 0 || coordinates.y < 0) {
-            throw new InvalidCoordinatesException();
+    public MarsRover(Position position) throws InvalidPositionException
+    {
+        if (position.x() < 0 || position.y() < 0) {
+            throw new InvalidPositionException();
         }
 
-        this.coordinates = coordinates;
+        this.position = position;
     }
 
     public void move(char[] commands)
     {
         for (char command : commands) {
             if (command == MarsRoverCommands.FORWARD) {
-                this.coordinates.x++;
+                this.position.increaseX();
             } else {
-                this.coordinates.x--;
+                this.position.decreaseX();
             }
         }
     }
 
-    public Coordinates coordinates()
+    public Position position()
     {
-        return this.coordinates;
+        return this.position;
     }
 }
