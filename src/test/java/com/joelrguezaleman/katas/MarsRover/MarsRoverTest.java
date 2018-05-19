@@ -3,6 +3,7 @@ package com.joelrguezaleman.katas;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -37,16 +38,13 @@ public class MarsRoverTest
     public void itCorrectlyUpdatesThePositionOfTheMarsRover(
         Position position,
         char[] commands,
-        int expectedXCoordinate,
-        int expectedYCoordinate
+        Position expectedPosition
     ) throws InvalidPositionException {
         MarsRover marsRover = new MarsRover(position);
 
         marsRover.move(commands);
 
-        Position roverPosition = marsRover.position();
-        assertEquals(expectedXCoordinate, roverPosition.x());
-        assertEquals(expectedYCoordinate, roverPosition.y());
+        assertTrue(expectedPosition.equals(marsRover.position()));
     }
 
     private static Stream<Arguments> positionAndCommandsProvider()
@@ -56,24 +54,21 @@ public class MarsRoverTest
             Arguments.of(
                 new Position(0, 0, Directions.EAST),
                 new char[0],
-                0,
-                0
+                new Position(0, 0, Directions.EAST)
             ),
 
             // Move the MarsRover forward
             Arguments.of(
                 new Position(0, 0, Directions.EAST),
                 new char[]{MarsRoverCommands.FORWARD},
-                1,
-                0
+                new Position(1, 0, Directions.EAST)
             ),
 
             // Move the MarsRover backward
             Arguments.of(
                 new Position(1, 0, Directions.EAST),
                 new char[]{MarsRoverCommands.BACKWARD},
-                0,
-                0
+                new Position(0, 0, Directions.EAST)
             )
         );
     }
