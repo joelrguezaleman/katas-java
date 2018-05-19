@@ -11,8 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class MarsRoverTest
 {
-    final private char DIRECTION = 'E';
-
     @ParameterizedTest
     @MethodSource("coordinatesProvider")
     public void itThrowsAnExceptionIfTheCoordinatesOrTheDirectionAreInvalid(
@@ -21,7 +19,7 @@ public class MarsRoverTest
         assertThrows(
             InvalidCoordinatesException.class,
             () -> {
-                new MarsRover(coordinates, this.DIRECTION);
+                new MarsRover(coordinates, Directions.EAST);
             }
         );
     }
@@ -38,11 +36,12 @@ public class MarsRoverTest
     @MethodSource("coordinatesAndCommandsProvider")
     public void itCorrectlyUpdatesThePositionOfTheMarsRover(
         Coordinates coordinates,
+        char direction,
         char[] commands,
         int expectedXCoordinate,
         int expectedYCoordinate
     ) throws InvalidCoordinatesException {
-        MarsRover marsRover = new MarsRover(coordinates, this.DIRECTION);
+        MarsRover marsRover = new MarsRover(coordinates, direction);
 
         marsRover.move(commands);
 
@@ -57,6 +56,7 @@ public class MarsRoverTest
             // Send an empty array of commands, the MarsRover should not move
             Arguments.of(
                 new Coordinates(0, 0),
+                Directions.EAST,
                 new char[0],
                 0,
                 0
@@ -65,6 +65,7 @@ public class MarsRoverTest
             // Move the MarsRover forward
             Arguments.of(
                 new Coordinates(0, 0),
+                Directions.EAST,
                 new char[]{MarsRoverCommands.FORWARD},
                 1,
                 0
@@ -73,6 +74,7 @@ public class MarsRoverTest
             // Move the MarsRover backward
             Arguments.of(
                 new Coordinates(1, 0),
+                Directions.EAST,
                 new char[]{MarsRoverCommands.BACKWARD},
                 0,
                 0
