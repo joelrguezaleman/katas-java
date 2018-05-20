@@ -1,4 +1,4 @@
-package com.joelrguezaleman.katas;
+package com.joelrguezaleman.katas.marsrover;
 
 public class Position
 {

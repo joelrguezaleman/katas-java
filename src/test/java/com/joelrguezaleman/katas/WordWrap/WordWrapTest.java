@@ -1,4 +1,4 @@
-package com.joelrguezaleman.katas;
+package com.joelrguezaleman.katas.wordwrap;
 
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;

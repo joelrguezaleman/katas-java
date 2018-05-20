@@ -1,4 +1,4 @@
-package com.joelrguezaleman.katas;
+package com.joelrguezaleman.katas.wordwrap;
 
 import java.lang.StringBuilder;
 
