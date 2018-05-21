@@ -4,12 +4,8 @@ public class MarsRover
 {
     private Position position;
 
-    public MarsRover(Position position) throws InvalidPositionException
+    public MarsRover(Position position)
     {
-        if (position.x() < 0 || position.y() < 0) {
-            throw new InvalidPositionException();
-        }
-
         this.position = position;
     }
 

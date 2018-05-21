@@ -6,11 +6,29 @@ public class Position
     private int y;
     private char direction;
 
-    public Position(int x, int y, char direction)
+    public Position(int x, int y, char direction) throws InvalidPositionException
     {
+        if (this.invalidCoordinates(x, y) || this.invalidDirection(direction)) {
+            throw new InvalidPositionException();
+        }
+
         this.x         = x;
         this.y         = y;
         this.direction = direction;
+    }
+
+    private boolean invalidCoordinates(int x, int y)
+    {
+        return x < 0 || y < 0;
+    }
+
+    private boolean invalidDirection(char direction)
+    {
+        return
+            direction != Directions.NORTH
+            && direction != Directions.EAST
+            && direction != Directions.SOUTH
+            && direction != Directions.WEST;
     }
 
     public int x()
