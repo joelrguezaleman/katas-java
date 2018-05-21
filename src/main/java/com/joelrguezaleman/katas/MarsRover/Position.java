@@ -56,6 +56,11 @@ public class Position
         this.x--;
     }
 
+    public void setDirection(char direction)
+    {
+        this.direction = direction;
+    }
+
     public boolean equals(Position position)
     {
         return this.x == position.x()

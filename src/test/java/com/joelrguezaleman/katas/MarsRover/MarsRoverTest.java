@@ -48,6 +48,13 @@ public class MarsRoverTest
                 new Position(1, 0, Directions.EAST),
                 new char[]{MarsRoverCommands.BACKWARD},
                 new Position(0, 0, Directions.EAST)
+            ),
+
+            // Move the MarsRover left
+            Arguments.of(
+                new Position(0, 0, Directions.EAST),
+                new char[]{MarsRoverCommands.LEFT},
+                new Position(0, 0, Directions.NORTH)
             )
         );
     }

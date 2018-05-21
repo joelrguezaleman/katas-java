@@ -14,6 +14,8 @@ public class MarsRover
         for (char command : commands) {
             if (command == MarsRoverCommands.FORWARD) {
                 this.position.increaseX();
+            } else if (command == MarsRoverCommands.LEFT) {
+                this.position.setDirection(Directions.NORTH);
             } else {
                 this.position.decreaseX();
             }
