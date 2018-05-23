@@ -32,6 +32,10 @@ public class CommandFactoryTest
             Arguments.of(
                 MarsRoverCommands.BACKWARD,
                 MoveBackwardCommand.class.getSimpleName()
+            ),
+            Arguments.of(
+                MarsRoverCommands.LEFT,
+                TurnLeftCommand.class.getSimpleName()
             )
         );
     }
