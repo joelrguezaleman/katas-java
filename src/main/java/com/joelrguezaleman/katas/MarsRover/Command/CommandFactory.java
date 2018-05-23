@@ -4,14 +4,15 @@ public class CommandFactory
 {
     public Command create(char rawCommand)
     {
-        if (rawCommand == MarsRoverCommands.LEFT) {
-            return new TurnLeftCommand();
+        switch (rawCommand) {
+            case MarsRoverCommands.RIGHT:
+                return new TurnRightCommand();
+            case MarsRoverCommands.LEFT:
+                return new TurnLeftCommand();
+            case MarsRoverCommands.BACKWARD:
+                return new MoveBackwardCommand();
+            default:
+                return new MoveForwardCommand();
         }
-
-        if (rawCommand == MarsRoverCommands.BACKWARD) {
-            return new MoveBackwardCommand();
-        }
-
-        return new MoveForwardCommand();
     }
 }
