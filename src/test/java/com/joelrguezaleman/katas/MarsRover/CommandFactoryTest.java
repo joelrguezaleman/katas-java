@@ -17,7 +17,7 @@ public class CommandFactoryTest
     ) {
         CommandFactory factory = new CommandFactory();
 
-        MoveForwardCommand command = factory.create(rawCommand);
+        Command command = factory.create(rawCommand);
 
         assertEquals(expectedCommandClass, command.getClass().getSimpleName());
     }
@@ -28,6 +28,10 @@ public class CommandFactoryTest
             Arguments.of(
                 MarsRoverCommands.FORWARD,
                 MoveForwardCommand.class.getSimpleName()
+            ),
+            Arguments.of(
+                MarsRoverCommands.BACKWARD,
+                MoveBackwardCommand.class.getSimpleName()
             )
         );
     }

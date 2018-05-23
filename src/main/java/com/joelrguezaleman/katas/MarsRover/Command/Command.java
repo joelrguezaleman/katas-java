@@ -1,6 +1,6 @@
 package com.joelrguezaleman.katas.marsrover;
 
-public class MoveForwardCommand extends Command
+abstract public class Command
 {
     
 }
