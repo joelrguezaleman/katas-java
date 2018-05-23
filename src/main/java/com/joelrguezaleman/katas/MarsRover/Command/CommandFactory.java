@@ -5,13 +5,13 @@ public class CommandFactory
     public Command create(char rawCommand) throws InvalidCommandException
     {
         switch (rawCommand) {
-            case MarsRoverCommands.BACKWARD:
+            case RawCommands.BACKWARD:
                 return new MoveBackwardCommand();
-            case MarsRoverCommands.FORWARD:
+            case RawCommands.FORWARD:
                 return new MoveForwardCommand();
-            case MarsRoverCommands.LEFT:
+            case RawCommands.LEFT:
                 return new TurnLeftCommand();
-            case MarsRoverCommands.RIGHT:
+            case RawCommands.RIGHT:
                 return new TurnRightCommand();
             default:
                 throw new InvalidCommandException();

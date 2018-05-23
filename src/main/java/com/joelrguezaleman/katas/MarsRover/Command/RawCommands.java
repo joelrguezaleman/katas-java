@@ -1,6 +1,6 @@
 package com.joelrguezaleman.katas.marsrover;
 
-public class MarsRoverCommands
+public class RawCommands
 {
     final public static char BACKWARD = 'b';
     final public static char FORWARD  = 'f';

@@ -27,19 +27,19 @@ public class CommandFactoryTest
     {
         return Stream.of(
             Arguments.of(
-                MarsRoverCommands.FORWARD,
+                RawCommands.FORWARD,
                 MoveForwardCommand.class.getSimpleName()
             ),
             Arguments.of(
-                MarsRoverCommands.BACKWARD,
+                RawCommands.BACKWARD,
                 MoveBackwardCommand.class.getSimpleName()
             ),
             Arguments.of(
-                MarsRoverCommands.LEFT,
+                RawCommands.LEFT,
                 TurnLeftCommand.class.getSimpleName()
             ),
             Arguments.of(
-                MarsRoverCommands.RIGHT,
+                RawCommands.RIGHT,
                 TurnRightCommand.class.getSimpleName()
             )
         );

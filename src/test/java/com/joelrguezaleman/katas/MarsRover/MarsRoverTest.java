@@ -39,21 +39,21 @@ public class MarsRoverTest
             // Move the MarsRover forward
             Arguments.of(
                 new Position(0, 0, Directions.EAST),
-                new char[]{MarsRoverCommands.FORWARD},
+                new char[]{RawCommands.FORWARD},
                 new Position(1, 0, Directions.EAST)
             ),
 
             // Move the MarsRover backward
             Arguments.of(
                 new Position(1, 0, Directions.EAST),
-                new char[]{MarsRoverCommands.BACKWARD},
+                new char[]{RawCommands.BACKWARD},
                 new Position(0, 0, Directions.EAST)
             ),
 
             // Move the MarsRover left
             Arguments.of(
                 new Position(0, 0, Directions.EAST),
-                new char[]{MarsRoverCommands.LEFT},
+                new char[]{RawCommands.LEFT},
                 new Position(0, 0, Directions.NORTH)
             )
         );
