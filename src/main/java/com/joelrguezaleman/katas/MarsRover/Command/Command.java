@@ -1,6 +1,6 @@
 package com.joelrguezaleman.katas.marsrover;
 
-abstract public class Command
+public interface Command
 {
-    
+    public void run(Position position);
 }

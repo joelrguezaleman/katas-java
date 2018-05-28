@@ -1,6 +1,8 @@
 package com.joelrguezaleman.katas.marsrover;
 
-public class TurnRightCommand extends Command
+public class TurnRightCommand implements Command
 {
-    
+    public void run(Position position)
+    {
+    }
 }
