@@ -4,7 +4,9 @@ public class MoveForwardCommand implements Command
 {
     public void run(Position position)
     {
-        if (position.direction() == Directions.NORTH) {
+        if (position.direction() == Directions.WEST) {
+            position.decreaseX();
+        } else if (position.direction() == Directions.NORTH) {
             position.increaseY();
         } else {
             position.increaseX();
