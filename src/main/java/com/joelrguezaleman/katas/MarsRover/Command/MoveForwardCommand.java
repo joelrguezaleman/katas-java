@@ -4,6 +4,10 @@ public class MoveForwardCommand implements Command
 {
     public void run(Position position)
     {
-        position.increaseX();
+        if (position.direction() == Directions.NORTH) {
+            position.increaseY();
+        } else {
+            position.increaseX();
+        }
     }
 }

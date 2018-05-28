@@ -1,20 +1,38 @@
 package com.joelrguezaleman.katas.marsrover;
 
+import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class MoveForwardCommandTest
 {
-    @Test
-    public void itUpdatesThePositionInAForwardDirection() throws InvalidPositionException
-    {
-        int xCoordinate = 0;
-        int yCoordinate = 0;
-        Position position = new Position(xCoordinate, yCoordinate, Directions.EAST);
+    @ParameterizedTest
+    @MethodSource("positionProvider")
+    public void itUpdatesThePositionInAForwardDirection(
+        Position position,
+        Position expectedPosition
+    ) {
         MoveForwardCommand command = new MoveForwardCommand();
 
         command.run(position);
 
-        assertEquals(1, position.x());
+        assertTrue(position.equals(expectedPosition));
+    }
+
+    private static Stream<Arguments> positionProvider() throws InvalidPositionException
+    {
+        return Stream.of(
+            Arguments.of(
+                new Position(0, 0, Directions.EAST),
+                new Position(1, 0, Directions.EAST)
+            ),
+            Arguments.of(
+                new Position(0, 0, Directions.NORTH),
+                new Position(0, 1, Directions.NORTH)
+            )
+        );
     }
 }
