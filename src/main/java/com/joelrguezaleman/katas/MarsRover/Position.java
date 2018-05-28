@@ -61,6 +61,11 @@ public class Position
         this.y++;
     }
 
+    public void decreaseY()
+    {
+        this.y--;
+    }
+
     public void setDirection(char direction)
     {
         this.direction = direction;

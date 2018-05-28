@@ -36,6 +36,10 @@ public class MoveForwardCommandTest
             Arguments.of(
                 new Position(1, 0, Directions.WEST),
                 new Position(0, 0, Directions.WEST)
+            ),
+            Arguments.of(
+                new Position(0, 1, Directions.SOUTH),
+                new Position(0, 0, Directions.SOUTH)
             )
         );
     }
