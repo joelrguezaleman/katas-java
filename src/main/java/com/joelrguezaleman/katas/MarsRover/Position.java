@@ -41,9 +41,24 @@ public class Position
         return this.y;
     }
 
-    public char direction()
+    public boolean isNorth()
     {
-        return this.direction;
+        return direction == Directions.NORTH;
+    }
+
+    public boolean isEast()
+    {
+        return direction == Directions.EAST;
+    }
+
+    public boolean isSouth()
+    {
+        return direction == Directions.SOUTH;
+    }
+
+    public boolean isWest()
+    {
+        return direction == Directions.WEST;
     }
 
     public void increaseX()
@@ -69,12 +84,5 @@ public class Position
     public void setDirection(char direction)
     {
         this.direction = direction;
-    }
-
-    public boolean equals(Position position)
-    {
-        return this.x == position.x()
-            && this.y == position.y()
-            && this.direction == position.direction();
     }
 }

@@ -3,7 +3,6 @@ package com.joelrguezaleman.katas.marsrover;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,7 +22,12 @@ public class MarsRoverTest
 
         marsRover.move(commands);
 
-        assertTrue(expectedPosition.equals(marsRover.position()));
+        assertEquals(expectedPosition.x(), marsRover.position().x());
+        assertEquals(expectedPosition.y(), marsRover.position().y());
+        assertEquals(expectedPosition.isNorth(), marsRover.position().isNorth());
+        assertEquals(expectedPosition.isEast(), marsRover.position().isEast());
+        assertEquals(expectedPosition.isSouth(), marsRover.position().isSouth());
+        assertEquals(expectedPosition.isWest(), marsRover.position().isWest());
     }
 
     private static Stream<Arguments> positionAndCommandsProvider() throws InvalidPositionException
