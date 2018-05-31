@@ -4,31 +4,22 @@ public class Position
 {
     private int x;
     private int y;
-    private char direction;
+    private Direction direction;
 
-    public Position(int x, int y, char direction) throws InvalidPositionException
+    public Position(int x, int y, char rawDirection) throws InvalidPositionException
     {
-        if (this.invalidCoordinates(x, y) || this.invalidDirection(direction)) {
+        if (this.invalidCoordinates(x, y)) {
             throw new InvalidPositionException();
         }
 
         this.x         = x;
         this.y         = y;
-        this.direction = direction;
+        this.direction = new Direction(rawDirection);
     }
 
     private boolean invalidCoordinates(int x, int y)
     {
         return x < 0 || y < 0;
-    }
-
-    private boolean invalidDirection(char direction)
-    {
-        return
-            direction != RawDirections.NORTH
-            && direction != RawDirections.EAST
-            && direction != RawDirections.SOUTH
-            && direction != RawDirections.WEST;
     }
 
     public int x()
@@ -43,22 +34,22 @@ public class Position
 
     public boolean isNorth()
     {
-        return direction == RawDirections.NORTH;
+        return this.direction.isNorth();
     }
 
     public boolean isEast()
     {
-        return direction == RawDirections.EAST;
+        return this.direction.isEast();
     }
 
     public boolean isSouth()
     {
-        return direction == RawDirections.SOUTH;
+        return this.direction.isSouth();
     }
 
     public boolean isWest()
     {
-        return direction == RawDirections.WEST;
+        return this.direction.isWest();
     }
 
     public void increaseX()
@@ -81,8 +72,13 @@ public class Position
         this.y--;
     }
 
-    public void setDirection(char direction)
+    public void turnLeft()
     {
-        this.direction = direction;
+        this.direction.turnLeft();
+    }
+
+    public void turnRight()
+    {
+        this.direction.turnRight();
     }
 }
