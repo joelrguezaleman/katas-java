@@ -25,10 +25,10 @@ public class Position
     private boolean invalidDirection(char direction)
     {
         return
-            direction != Directions.NORTH
-            && direction != Directions.EAST
-            && direction != Directions.SOUTH
-            && direction != Directions.WEST;
+            direction != RawDirections.NORTH
+            && direction != RawDirections.EAST
+            && direction != RawDirections.SOUTH
+            && direction != RawDirections.WEST;
     }
 
     public int x()
@@ -43,22 +43,22 @@ public class Position
 
     public boolean isNorth()
     {
-        return direction == Directions.NORTH;
+        return direction == RawDirections.NORTH;
     }
 
     public boolean isEast()
     {
-        return direction == Directions.EAST;
+        return direction == RawDirections.EAST;
     }
 
     public boolean isSouth()
     {
-        return direction == Directions.SOUTH;
+        return direction == RawDirections.SOUTH;
     }
 
     public boolean isWest()
     {
-        return direction == Directions.WEST;
+        return direction == RawDirections.WEST;
     }
 
     public void increaseX()

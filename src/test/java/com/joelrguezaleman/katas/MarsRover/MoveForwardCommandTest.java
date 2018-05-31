@@ -30,20 +30,20 @@ public class MoveForwardCommandTest
     {
         return Stream.of(
             Arguments.of(
-                new Position(0, 0, Directions.EAST),
-                new Position(1, 0, Directions.EAST)
+                new Position(0, 0, RawDirections.EAST),
+                new Position(1, 0, RawDirections.EAST)
             ),
             Arguments.of(
-                new Position(0, 0, Directions.NORTH),
-                new Position(0, 1, Directions.NORTH)
+                new Position(0, 0, RawDirections.NORTH),
+                new Position(0, 1, RawDirections.NORTH)
             ),
             Arguments.of(
-                new Position(1, 0, Directions.WEST),
-                new Position(0, 0, Directions.WEST)
+                new Position(1, 0, RawDirections.WEST),
+                new Position(0, 0, RawDirections.WEST)
             ),
             Arguments.of(
-                new Position(0, 1, Directions.SOUTH),
-                new Position(0, 0, Directions.SOUTH)
+                new Position(0, 1, RawDirections.SOUTH),
+                new Position(0, 0, RawDirections.SOUTH)
             )
         );
     }

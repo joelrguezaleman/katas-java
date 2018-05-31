@@ -35,30 +35,30 @@ public class MarsRoverTest
         return Stream.of(
             // Send an empty array of commands, the MarsRover should not move
             Arguments.of(
-                new Position(0, 0, Directions.EAST),
+                new Position(0, 0, RawDirections.EAST),
                 new char[0],
-                new Position(0, 0, Directions.EAST)
+                new Position(0, 0, RawDirections.EAST)
             ),
 
             // Move the MarsRover forward
             Arguments.of(
-                new Position(0, 0, Directions.EAST),
+                new Position(0, 0, RawDirections.EAST),
                 new char[]{RawCommands.FORWARD},
-                new Position(1, 0, Directions.EAST)
+                new Position(1, 0, RawDirections.EAST)
             ),
 
             // Move the MarsRover backward
             Arguments.of(
-                new Position(1, 0, Directions.EAST),
+                new Position(1, 0, RawDirections.EAST),
                 new char[]{RawCommands.BACKWARD},
-                new Position(0, 0, Directions.EAST)
+                new Position(0, 0, RawDirections.EAST)
             ),
 
             // Move the MarsRover left
             Arguments.of(
-                new Position(0, 0, Directions.EAST),
+                new Position(0, 0, RawDirections.EAST),
                 new char[]{RawCommands.LEFT},
-                new Position(0, 0, Directions.NORTH)
+                new Position(0, 0, RawDirections.NORTH)
             )
         );
     }

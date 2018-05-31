@@ -5,13 +5,13 @@ public class TurnRightCommand implements Command
     public void run(Position position)
     {
         if (position.isSouth()) {
-            position.setDirection(Directions.WEST);
+            position.setDirection(RawDirections.WEST);
         } else if (position.isWest()) {
-            position.setDirection(Directions.NORTH);
+            position.setDirection(RawDirections.NORTH);
         } else if (position.isNorth()) {
-            position.setDirection(Directions.EAST);
+            position.setDirection(RawDirections.EAST);
         } else {
-            position.setDirection(Directions.SOUTH);
+            position.setDirection(RawDirections.SOUTH);
         }
     }
 }

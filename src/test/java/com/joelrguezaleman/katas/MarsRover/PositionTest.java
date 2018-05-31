@@ -23,8 +23,8 @@ public class PositionTest
     private static Stream<Arguments> invalidPositionValuesProvider() throws InvalidPositionException
     {
         return Stream.of(
-            Arguments.of(-1, 0, Directions.EAST),
-            Arguments.of(0, -1, Directions.EAST),
+            Arguments.of(-1, 0, RawDirections.EAST),
+            Arguments.of(0, -1, RawDirections.EAST),
             Arguments.of(1, 1, '.')
         );
     }
