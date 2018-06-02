@@ -17,7 +17,7 @@ public class MarsRoverTest
         Position position,
         char[] commands,
         Position expectedPosition
-    ) {
+    ) throws InvalidCommandException {
         CommandFactory commandFactory = new CommandFactory();
         MarsRover marsRover           = new MarsRover(commandFactory, position);
 

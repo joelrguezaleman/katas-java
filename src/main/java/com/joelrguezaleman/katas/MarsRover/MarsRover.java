@@ -13,16 +13,11 @@ public class MarsRover
         this.position       = position;
     }
 
-    public void move(char[] commands)
+    public void move(char[] rawCommands) throws InvalidCommandException
     {
-        for (char command : commands) {
-            if (command == RawCommands.FORWARD) {
-                this.position.increaseX();
-            } else if (command == RawCommands.LEFT) {
-                this.position.turnLeft();
-            } else {
-                this.position.decreaseX();
-            }
+        for (char rawCommand : rawCommands) {
+            Command command = this.commandFactory.create(rawCommand);
+            command.run(this.position);
         }
     }
 
