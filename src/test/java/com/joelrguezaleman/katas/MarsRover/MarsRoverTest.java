@@ -60,6 +60,13 @@ public class MarsRoverTest
                 new Position(0, 0, RawDirections.EAST),
                 new char[]{RawCommands.LEFT},
                 new Position(0, 0, RawDirections.NORTH)
+            ),
+
+            // Move the MarsRover right
+            Arguments.of(
+                new Position(0, 0, RawDirections.EAST),
+                new char[]{RawCommands.RIGHT},
+                new Position(0, 0, RawDirections.SOUTH)
             )
         );
     }
