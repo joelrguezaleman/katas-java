@@ -18,7 +18,8 @@ public class MarsRoverTest
         char[] commands,
         Position expectedPosition
     ) {
-        MarsRover marsRover = new MarsRover(position);
+        CommandFactory commandFactory = new CommandFactory();
+        MarsRover marsRover           = new MarsRover(commandFactory, position);
 
         marsRover.move(commands);
 

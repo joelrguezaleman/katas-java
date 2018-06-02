@@ -2,11 +2,15 @@ package com.joelrguezaleman.katas.marsrover;
 
 public class MarsRover
 {
+    private CommandFactory commandFactory;
     private Position position;
 
-    public MarsRover(Position position)
-    {
-        this.position = position;
+    public MarsRover(
+        CommandFactory commandFactory,
+        Position position
+    ) {
+        this.commandFactory = commandFactory;
+        this.position       = position;
     }
 
     public void move(char[] commands)
